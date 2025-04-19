@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 700px;
+                 background-color: #1A1A1A;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "font": {"color": "white"}, "id": "AB de Villiers", "label": "AB de Villiers", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "V Kohli", "label": "V Kohli", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "CH Gayle", "label": "CH Gayle", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "D Padikkal", "label": "D Padikkal", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "F du Plessis", "label": "F du Plessis", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "AC Gilchrist", "label": "AC Gilchrist", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "HH Gibbs", "label": "HH Gibbs", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "AD Russell", "label": "AD Russell", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "KD Karthik", "label": "KD Karthik", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "AM Rahane", "label": "AM Rahane", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "R Dravid", "label": "R Dravid", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "SR Watson", "label": "SR Watson", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "SV Samson", "label": "SV Samson", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "AT Rayudu", "label": "AT Rayudu", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "JC Buttler", "label": "JC Buttler", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "YBK Jaiswal", "label": "YBK Jaiswal", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "KA Pollard", "label": "KA Pollard", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "RG Sharma", "label": "RG Sharma", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "MS Dhoni", "label": "MS Dhoni", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "HH Pandya", "label": "HH Pandya", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Ishan Kishan", "label": "Ishan Kishan", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Q de Kock", "label": "Q de Kock", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "SA Yadav", "label": "SA Yadav", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "B Sai Sudharsan", "label": "B Sai Sudharsan", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Shubman Gill", "label": "Shubman Gill", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "WP Saha", "label": "WP Saha", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "BB McCullum", "label": "BB McCullum", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "DR Smith", "label": "DR Smith", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "SK Raina", "label": "SK Raina", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "MEK Hussey", "label": "MEK Hussey", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "S Badrinath", "label": "S Badrinath", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "KL Rahul", "label": "KL Rahul", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "TM Dilshan", "label": "TM Dilshan", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "MA Agarwal", "label": "MA Agarwal", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "DA Warner", "label": "DA Warner", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "JM Bairstow", "label": "JM Bairstow", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "MK Pandey", "label": "MK Pandey", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "S Dhawan", "label": "S Dhawan", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "G Gambhir", "label": "G Gambhir", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "RV Uthappa", "label": "RV Uthappa", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "KS Williamson", "label": "KS Williamson", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "PP Shaw", "label": "PP Shaw", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "SS Iyer", "label": "SS Iyer", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "DP Conway", "label": "DP Conway", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "RD Gaikwad", "label": "RD Gaikwad", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "JH Kallis", "label": "JH Kallis", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "V Sehwag", "label": "V Sehwag", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Tilak Varma", "label": "Tilak Varma", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "M Vijay", "label": "M Vijay", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "DJ Bravo", "label": "DJ Bravo", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "RA Jadeja", "label": "RA Jadeja", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "RR Pant", "label": "RR Pant", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "ST Jayasuriya", "label": "ST Jayasuriya", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "SR Tendulkar", "label": "SR Tendulkar", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"from": "AB de Villiers", "to": "V Kohli", "width": 1}, {"from": "V Kohli", "to": "CH Gayle", "width": 1}, {"from": "V Kohli", "to": "D Padikkal", "width": 1}, {"from": "V Kohli", "to": "F du Plessis", "width": 1}, {"from": "AC Gilchrist", "to": "HH Gibbs", "width": 1}, {"from": "AD Russell", "to": "KD Karthik", "width": 1}, {"from": "AM Rahane", "to": "R Dravid", "width": 1}, {"from": "AM Rahane", "to": "SR Watson", "width": 1}, {"from": "AM Rahane", "to": "SV Samson", "width": 1}, {"from": "SR Watson", "to": "F du Plessis", "width": 1}, {"from": "SR Watson", "to": "AT Rayudu", "width": 1}, {"from": "SV Samson", "to": "JC Buttler", "width": 1}, {"from": "SV Samson", "to": "YBK Jaiswal", "width": 1}, {"from": "AT Rayudu", "to": "KA Pollard", "width": 1}, {"from": "AT Rayudu", "to": "RG Sharma", "width": 1}, {"from": "AT Rayudu", "to": "MS Dhoni", "width": 1}, {"from": "KA Pollard", "to": "HH Pandya", "width": 1}, {"from": "KA Pollard", "to": "RG Sharma", "width": 1}, {"from": "RG Sharma", "to": "Ishan Kishan", "width": 1}, {"from": "RG Sharma", "to": "Q de Kock", "width": 1}, {"from": "RG Sharma", "to": "SA Yadav", "width": 1}, {"from": "B Sai Sudharsan", "to": "Shubman Gill", "width": 1}, {"from": "Shubman Gill", "to": "WP Saha", "width": 1}, {"from": "BB McCullum", "to": "DR Smith", "width": 1}, {"from": "BB McCullum", "to": "SK Raina", "width": 1}, {"from": "SK Raina", "to": "F du Plessis", "width": 1}, {"from": "SK Raina", "to": "MEK Hussey", "width": 1}, {"from": "SK Raina", "to": "MS Dhoni", "width": 1}, {"from": "SK Raina", "to": "S Badrinath", "width": 1}, {"from": "CH Gayle", "to": "KL Rahul", "width": 1}, {"from": "CH Gayle", "to": "TM Dilshan", "width": 1}, {"from": "KL Rahul", "to": "MA Agarwal", "width": 1}, {"from": "KL Rahul", "to": "Q de Kock", "width": 1}, {"from": "DA Warner", "to": "JM Bairstow", "width": 1}, {"from": "DA Warner", "to": "MK Pandey", "width": 1}, {"from": "DA Warner", "to": "S Dhawan", "width": 1}, {"from": "MK Pandey", "to": "G Gambhir", "width": 1}, {"from": "MK Pandey", "to": "RV Uthappa", "width": 1}, {"from": "S Dhawan", "to": "KS Williamson", "width": 1}, {"from": "S Dhawan", "to": "PP Shaw", "width": 1}, {"from": "S Dhawan", "to": "SS Iyer", "width": 1}, {"from": "DP Conway", "to": "RD Gaikwad", "width": 1}, {"from": "RD Gaikwad", "to": "F du Plessis", "width": 1}, {"from": "G Gambhir", "to": "JH Kallis", "width": 1}, {"from": "G Gambhir", "to": "RV Uthappa", "width": 1}, {"from": "G Gambhir", "to": "V Sehwag", "width": 1}, {"from": "Ishan Kishan", "to": "SA Yadav", "width": 1}, {"from": "SA Yadav", "to": "Tilak Varma", "width": 1}, {"from": "JC Buttler", "to": "YBK Jaiswal", "width": 1}, {"from": "M Vijay", "to": "MEK Hussey", "width": 1}, {"from": "MS Dhoni", "to": "DJ Bravo", "width": 1}, {"from": "MS Dhoni", "to": "RA Jadeja", "width": 1}, {"from": "RR Pant", "to": "SS Iyer", "width": 1}, {"from": "ST Jayasuriya", "to": "SR Tendulkar", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
