@@ -1,0 +1,56 @@
+from graphviz import Digraph
+
+# Create a left-to-right graph
+dot = Digraph('data_pipeline', format='png')
+dot.attr(rankdir='LR', size='8,5')
+
+# Define node style
+dot.attr('node', shape='box', style='filled', fillcolor='lightgray', fontsize='10')
+
+# Ingest & Validate
+dot.node('A1', 'File Sensor\n(~2 GB/hr)')
+dot.node('A2', 'Load raw → staging.raw_products')
+dot.node('A3', 'Schema Validation')
+dot.node('A4', 'Null Check')
+dot.node('A5', 'Record Watermark')
+
+# Transform & Aggregate
+dot.node('B1', 'Transform & Clean\n→ warehouse.products')
+dot.node('B2', 'Hourly Sales\nby Warehouse')
+dot.node('B3', 'Top Products\nper Hour')
+dot.node('B4', 'Load Aggregates\n→ analytics.hourly_metrics')
+
+# Dashboard Refresh
+dot.node('C1', 'Trigger BI Refresh\n(every 2 hrs max)')
+
+# Alerts (use red boxes)
+dot.attr('node', fillcolor='salmon')
+dot.node('E_schema', 'Alert: Schema Drift')
+dot.node('E_nulls',  'Alert: NULLs Detected')
+dot.node('E_trans',  'Alert: Transform Error')
+dot.node('E_agg',    'Alert: Aggregation Error')
+dot.node('E_refresh','Alert: Refresh Failed')
+
+# Edges — Ingest & Validate
+dot.edge('A1', 'A2')
+dot.edge('A2', 'A3')
+dot.edge('A3', 'A4', label='OK')
+dot.edge('A3', 'E_schema', label='FAIL')
+dot.edge('A4', 'A5', label='OK')
+dot.edge('A4', 'E_nulls', label='FAIL')
+
+# Edges — Transform & Aggregate
+dot.edge('A5', 'B1')
+dot.edge('B1', 'B2', label='OK')
+dot.edge('B1', 'E_trans', label='FAIL')
+dot.edge('B2', 'B4')
+dot.edge('B3', 'B4')
+dot.edge('B2', 'E_agg', label='FAIL')
+dot.edge('B3', 'E_agg', label='FAIL')
+
+# Edges — Dashboard
+dot.edge('B4', 'C1')
+dot.edge('C1', 'E_refresh', label='FAIL')
+
+# Render to file
+dot.render('data_pipeline_dag', view=True)
