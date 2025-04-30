@@ -11,6 +11,7 @@ if not os.path.exists(PLOT_DIR):
     os.makedirs(PLOT_DIR)
 
 # Load matches data
+# matches = pd.read_csv('D:\DataViz\project\Data_Viz\datasets\matches.csv')
 matches = pd.read_csv('../datasets/matches.csv')
 
 # Clean and convert season to integer
@@ -47,24 +48,25 @@ race_chart = alt.Chart(team_wins).transform_filter(
 race_chart.save(f"{PLOT_DIR}/race_chart.html")
 
 # Load deliveries data
+# deliveries = pd.read_csv('D:\DataViz\project\Data_Viz\datasets\deliveries.csv')
 deliveries = pd.read_csv('../datasets/deliveries.csv')
 
 # Prepare partnership data
 partnerships = deliveries.groupby(['batter', 'non_striker'])['batsman_runs'].sum().reset_index()
 
 # Filter: Only strong partnerships (> 400 runs together)
-strong_partnerships = partnerships[partnerships['batsman_runs'] > 800]
+strong_partnerships = partnerships[partnerships['batsman_runs'] > 400]
 
 # Build Graph
 G = nx.Graph()
 
 for index, row in strong_partnerships.iterrows():
-    G.add_edge(row['batter'], row['non_striker'])
-    # G.add_edge(row['batter'], row['non_striker'], weight=row['batsman_runs'])
+    # G.add_edge(row['batter'], row['non_striker'])
+    G.add_edge(row['batter'], row['non_striker'], weight=row['batsman_runs']*0.01)
 
 # Create PyVis Network
 # net = Network(height="700px", width="100%", bgcolor="transparent", font_color="white")
-net = Network(height="1000px", width="100%", bgcolor="#1A1A1A", font_color="white")
+net = Network(height="500px", width="100%", bgcolor="#1A1A1A", font_color="white")
 
 import json
 # Set node background color to transparent or the desired color
@@ -214,7 +216,7 @@ toss_outcomes = combined_df[['match_id', 'toss_match_result']].drop_duplicates()
 fig = px.pie(toss_outcomes, names='toss_match_result', title='🧠 Toss Impact on Winning Matches')
 
 # Save the toss outcome pie chart as HTML
-fig.write_html(f"{PLOT_DIR}/toss_outcome_pie_chart.html")
+# fig.write_html(f"{PLOT_DIR}/toss_outcome_pie_chart.html")
 
 # End of script
 

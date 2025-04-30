@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-9cf07729e01e3a121cfd09cd4e42648c"}, "mark": {"type": "area", "interpolate": "basis"}, "encoding": {"color": {"field": "Role", "type": "nominal"}, "x": {"field": "Year", "type": "ordinal"}, "y": {"field": "Amount", "type": "quantitative"}}, "height": 400, "title": "Streamgraph of Amount by Role over Years", "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-9cf07729e01e3a121cfd09cd4e42648c": [{"Year": 2013.0, "Role": "All-Rounder", "Amount": 427875000}, {"Year": 2013.0, "Role": "Batsman", "Amount": 90000000}, {"Year": 2013.0, "Role": "Bowler", "Amount": 370500000}, {"Year": 2013.0, "Role": "Wicket Keeper", "Amount": 3000000}, {"Year": 2014.0, "Role": "All-Rounder", "Amount": 729000000}, {"Year": 2014.0, "Role": "Batsman", "Amount": 765500000}, {"Year": 2014.0, "Role": "Bowler", "Amount": 859000000}, {"Year": 2014.0, "Role": "Wicket Keeper", "Amount": 272500000}, {"Year": 2015.0, "Role": "All-Rounder", "Amount": 205000000}, {"Year": 2015.0, "Role": "Batsman", "Amount": 315500000}, {"Year": 2015.0, "Role": "Bowler", "Amount": 242500000}, {"Year": 2015.0, "Role": "Wicket Keeper", "Amount": 113000000}, {"Year": 2016.0, "Role": "All-Rounder", "Amount": 612500000}, {"Year": 2016.0, "Role": "Batsman", "Amount": 95000000}, {"Year": 2016.0, "Role": "Bowler", "Amount": 497000000}, {"Year": 2016.0, "Role": "Wicket Keeper", "Amount": 155500000}, {"Year": 2017.0, "Role": "All-Rounder", "Amount": 319000000}, {"Year": 2017.0, "Role": "Batsman", "Amount": 56000000}, {"Year": 2017.0, "Role": "Bowler", "Amount": 523500000}, {"Year": 2017.0, "Role": "Wicket Keeper", "Amount": 13000000}, {"Year": 2018.0, "Role": "All-Rounder", "Amount": 1411500000}, {"Year": 2018.0, "Role": "Batsman", "Amount": 987000000}, {"Year": 2018.0, "Role": "Bowler", "Amount": 1501500000}, {"Year": 2018.0, "Role": "Wicket Keeper", "Amount": 417000000}, {"Year": 2019.0, "Role": "All-Rounder", "Amount": 441500000}, {"Year": 2019.0, "Role": "Batsman", "Amount": 166500000}, {"Year": 2019.0, "Role": "Bowler", "Amount": 327000000}, {"Year": 2019.0, "Role": "Wicket Keeper", "Amount": 133000000}, {"Year": 2020.0, "Role": "All-Rounder", "Amount": 644500000}, {"Year": 2020.0, "Role": "Batsman", "Amount": 305500000}, {"Year": 2020.0, "Role": "Bowler", "Amount": 407500000}, {"Year": 2020.0, "Role": "Wicket Keeper", "Amount": 43500000}, {"Year": 2021.0, "Role": "All-Rounder", "Amount": 977000000}, {"Year": 2021.0, "Role": "Batsman", "Amount": 38000000}, {"Year": 2021.0, "Role": "Bowler", "Amount": 410000000}, {"Year": 2021.0, "Role": "Wicket Keeper", "Amount": 28000000}, {"Year": 2022.0, "Role": "All-Rounder", "Amount": 2131500000}, {"Year": 2022.0, "Role": "Batsman", "Amount": 943500000}, {"Year": 2022.0, "Role": "Bowler", "Amount": 1758500000}, {"Year": 2022.0, "Role": "Wicket Keeper", "Amount": 683500000}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
