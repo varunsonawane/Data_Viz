@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-18a6789dcfece95963325b1819ffb548"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "bowler", "type": "nominal"}, "tooltip": [{"field": "bowler", "type": "nominal"}, {"field": "economy", "type": "quantitative"}, {"field": "overs", "type": "quantitative"}], "x": {"field": "economy", "title": "Economy Rate in Wins", "type": "quantitative"}, "y": {"field": "bowler", "sort": "x", "title": "Bowler", "type": "nominal"}}, "height": 700, "title": "\ud83c\udfaf Top 10 Best Economy Bowlers in Winning Matches", "width": 1000, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-18a6789dcfece95963325b1819ffb548": [{"bowler": "A Kumble", "total_runs": 467, "balls_bowled": 467, "overs": 77.83333333333333, "economy": 6.0}, {"bowler": "DW Steyn", "total_runs": 989, "balls_bowled": 971, "overs": 161.83333333333334, "economy": 6.111225540679711}, {"bowler": "R Sharma", "total_runs": 292, "balls_bowled": 279, "overs": 46.5, "economy": 6.279569892473118}, {"bowler": "DL Vettori", "total_runs": 477, "balls_bowled": 450, "overs": 75.0, "economy": 6.36}, {"bowler": "JP Duminy", "total_runs": 278, "balls_bowled": 261, "overs": 43.5, "economy": 6.390804597701149}, {"bowler": "CH Gayle", "total_runs": 273, "balls_bowled": 256, "overs": 42.666666666666664, "economy": 6.3984375}, {"bowler": "MM Ali", "total_runs": 340, "balls_bowled": 318, "overs": 53.0, "economy": 6.415094339622642}, {"bowler": "Rashid Khan", "total_runs": 1636, "balls_bowled": 1526, "overs": 254.33333333333334, "economy": 6.432503276539974}, {"bowler": "Sohail Tanvir", "total_runs": 262, "balls_bowled": 242, "overs": 40.333333333333336, "economy": 6.495867768595041}, {"bowler": "A Mishra", "total_runs": 1862, "balls_bowled": 1716, "overs": 286.0, "economy": 6.510489510489511}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

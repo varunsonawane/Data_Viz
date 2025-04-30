@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-5dbe8626e19c8427beebef982e83634a"}, "mark": {"type": "bar", "size": 25}, "encoding": {"color": {"condition": {"param": "param_1", "field": "Team", "type": "nominal"}, "value": "lightgray"}, "tooltip": [{"field": "Team", "type": "nominal"}, {"field": "Amount", "type": "quantitative"}], "x": {"field": "Amount", "title": "Total Amount (INR)", "type": "quantitative"}, "y": {"field": "Team", "sort": "-x", "title": "Teams", "type": "nominal"}}, "height": 700, "params": [{"name": "param_1", "select": {"type": "point", "fields": ["Team"], "nearest": true, "on": "mouseover"}}], "title": "Auction Spending by Teams (Hover Highlight)", "width": 1000, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-5dbe8626e19c8427beebef982e83634a": [{"Team": "Chennai Super Kings", "Amount": 1570875000}, {"Team": "Delhi Capitals", "Amount": 953000000}, {"Team": "Delhi Daredevils", "Amount": 1945500000}, {"Team": "Gujarat Lions", "Amount": 205000000}, {"Team": "Gujarat Titans", "Amount": 518500000}, {"Team": "Kings XI Punjab", "Amount": 1947000000}, {"Team": "Kolkata Knight Riders", "Amount": 2165125000}, {"Team": "Lucknow Super Giants", "Amount": 590000000}, {"Team": "Mumbai Indians", "Amount": 1870000000}, {"Team": "Pune Warriors India", "Amount": 187500000}, {"Team": "Punjab Kings", "Amount": 1029500000}, {"Team": "Rajasthan Royals", "Amount": 2028250000}, {"Team": "Rising Pune Supergiant", "Amount": 390000000}, {"Team": "Royal Challengers Bangalore", "Amount": 2709625000}, {"Team": "Sunrisers Hyderabad", "Amount": 2311000000}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

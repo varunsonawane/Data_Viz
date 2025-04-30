@@ -1,0 +1,100 @@
+<link href="navbar.html" rel="import" />
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IPL Data Viz</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/ipl2.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <link rel="stylesheet" href="../assets/css/story-arc.css" />
+</head>
+
+<body>
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+
+    <div id="navbar-placeholder"></div>
+
+    <div class="body-wrapper">
+      <header class="app-header">
+        <h1 class="mt-3">Indian Premier League</h1>
+      </header>
+
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4">Cricket Overview</h5>
+            <p class="card-text">The Indian Premier League (IPL) is a professional Twenty20 cricket league in India, founded
+              by the Board of Control for Cricket in India (BCCI) in 2008. The league consists of eight teams, each
+              representing a different city in India. The IPL has gained immense popularity and is known for its
+              high-octane matches, star-studded lineups, and entertainment value.</p>
+          </div>
+        </div>
+
+        <div class="card mt-4">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4">What is Cricket?</h5>
+            <p class="card-text">
+              If you're new to the game, this short animated video explains the rules and flow of a typical cricket match in an easy and fun way.
+            </p>
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/VwII4y5vpyU" title="What is Cricket - YouTube" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-4">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4">IPL Season Story Arc</h5>
+            <p class="card-text mb-4">
+              The IPL season follows a consistent structure every year, beginning with team auctions and ending with a high-stakes final.
+              This story arc outlines the journey — from squad formations in Nov/Dec to the thrilling finale in late May —
+              capturing the flow of anticipation, competition, and celebration.
+            </p>
+            <div class="ipl-story-arc">
+              <div class="arc-step">
+                <div class="arc-box">Auction in Nov/Dec</div>
+              </div>
+              <div class="arc-arrow">→</div>
+              <div class="arc-step">
+                <div class="arc-box">Tournament Starts in Mar/Apr</div>
+              </div>
+              <div class="arc-arrow">→</div>
+              <div class="arc-step">
+                <div class="arc-box">Group Stage till 1st week of May</div>
+              </div>
+              <div class="arc-arrow">→</div>
+              <div class="arc-step">
+                <div class="arc-box">Knockouts Begin</div>
+              </div>
+              <div class="arc-arrow">→</div>
+              <div class="arc-step">
+                <div class="arc-box">Finals in Late May</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+</body>
+
+</html>
+
+<script>
+  fetch('navbar.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('navbar-placeholder').innerHTML = data;
+    });
+</script>
