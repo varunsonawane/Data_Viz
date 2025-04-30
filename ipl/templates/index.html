@@ -1,0 +1,45 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Data Visualizations</title>
+</head>
+<body>
+    <h1>Generated IPL Visualizations</h1>
+
+    {% if plot_files %}
+        {% for plot_file in plot_files %}
+            <div>
+                <img src="{{ url_for('plot', filename=plot_file) }}" alt="Graph">
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No plots available. Please generate them first.</p>
+    {% endif %}
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Data Visualizations</title>
+</head>
+<body>
+    <h1>Generated IPL Visualizations</h1>
+
+    {% if plot_files %}
+        {% for plot_file in plot_files %}
+            <div>
+                <iframe src="{{ url_for('plot', filename=plot_file) }}" width="100%" height="800px"></iframe>
+            </div>
+            <br>
+        {% endfor %}
+    {% else %}
+        <p>No plots available. Please generate them first.</p>
+    {% endif %}
+</body>
+</html>

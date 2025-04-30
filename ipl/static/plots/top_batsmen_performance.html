@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-43db8e9f9e31bba12b70e7b5e6567fa2"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "batter", "type": "nominal"}, "tooltip": [{"field": "batter", "type": "nominal"}, {"field": "batsman_runs", "type": "quantitative"}], "x": {"field": "batsman_runs", "title": "Total Runs in Winning Matches", "type": "quantitative"}, "y": {"field": "batter", "sort": "-x", "title": "Batsman", "type": "nominal"}}, "height": 700, "title": "\ud83c\udfc6 Top 10 Batsmen by Runs in Winning Matches", "width": 1000, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-43db8e9f9e31bba12b70e7b5e6567fa2": [{"batter": "V Kohli", "batsman_runs": 4278}, {"batter": "S Dhawan", "batsman_runs": 3989}, {"batter": "RG Sharma", "batsman_runs": 3951}, {"batter": "DA Warner", "batsman_runs": 3710}, {"batter": "SK Raina", "batsman_runs": 3559}, {"batter": "CH Gayle", "batsman_runs": 3162}, {"batter": "AB de Villiers", "batsman_runs": 3080}, {"batter": "MS Dhoni", "batsman_runs": 3007}, {"batter": "G Gambhir", "batsman_runs": 2839}, {"batter": "F du Plessis", "batsman_runs": 2751}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

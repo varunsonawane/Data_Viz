@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-a4113a8cc2cbe0787b3a84b2e686f6cc"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "Player", "type": "nominal"}, "tooltip": [{"field": "Player", "type": "nominal"}, {"field": "Amount", "type": "quantitative"}, {"field": "Year", "type": "ordinal"}], "x": {"field": "Amount", "title": "Auction Amount (INR)", "type": "quantitative"}, "y": {"field": "Player", "sort": "-x", "title": "Player", "type": "nominal"}}, "height": 400, "params": [{"name": "YearSelector", "bind": {"input": "range", "max": 2022.0, "min": 2013.0, "step": 1}, "value": 2013.0}], "title": "Top Paid Players per Year (Interactive Slider)", "transform": [{"filter": "(datum.Year === YearSelector)"}], "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-a4113a8cc2cbe0787b3a84b2e686f6cc": [{"Year": 2021, "Player": "Christopher Morris", "Amount": 162500000}, {"Year": 2015, "Player": "Yuvraj Singh", "Amount": 160000000}, {"Year": 2020, "Player": "Pat Cummins", "Amount": 155000000}, {"Year": 2022, "Player": "Ishan Kishan", "Amount": 152500000}, {"Year": 2021, "Player": "Kyle Jamieson", "Amount": 150000000}, {"Year": 2017, "Player": "Benjamin Stokes", "Amount": 145000000}, {"Year": 2021, "Player": "Glenn Maxwell", "Amount": 142500000}, {"Year": 2022, "Player": "Deepak Chahar", "Amount": 140000000}, {"Year": 2014, "Player": "Yuvraj Singh", "Amount": 140000000}, {"Year": 2021, "Player": "Jhye Richardson", "Amount": 140000000}, {"Year": 2014, "Player": "Dinesh Karthik", "Amount": 125000000}, {"Year": 2018, "Player": "Benjamin Stokes", "Amount": 125000000}, {"Year": 2022, "Player": "Shreyas Iyer", "Amount": 122500000}, {"Year": 2017, "Player": "Tymal Mills", "Amount": 120000000}, {"Year": 2018, "Player": "Jaydev Unadkat", "Amount": 115000000}, {"Year": 2022, "Player": "Liam Livingstone", "Amount": 115000000}, {"Year": 2018, "Player": "Manish Pandey", "Amount": 110000000}, {"Year": 2018, "Player": "KL Rahul", "Amount": 110000000}, {"Year": 2022, "Player": "Harshal Patel", "Amount": 107500000}, {"Year": 2022, "Player": "Wanindu Hasaranga", "Amount": 107500000}, {"Year": 2022, "Player": "Nicolas Pooran", "Amount": 107500000}, {"Year": 2020, "Player": "Glenn Maxwell", "Amount": 107500000}, {"Year": 2022, "Player": "Shardul Thakur", "Amount": 107500000}, {"Year": 2015, "Player": "Dinesh Karthik", "Amount": 105000000}, {"Year": 2022, "Player": "Lockie Ferguson", "Amount": 100000000}, {"Year": 2020, "Player": "Christopher Morris", "Amount": 100000000}, {"Year": 2022, "Player": "Avesh Khan", "Amount": 100000000}, {"Year": 2018, "Player": "Chris Lynn", "Amount": 96000000}, {"Year": 2016, "Player": "Shane Watson", "Amount": 95000000}, {"Year": 2018, "Player": "Mitchell Starc", "Amount": 94000000}, {"Year": 2021, "Player": "Krishnappa Gowtham", "Amount": 92500000}, {"Year": 2018, "Player": "Rashid Khan Arman", "Amount": 90000000}, {"Year": 2018, "Player": "Glenn Maxwell", "Amount": 90000000}, {"Year": 2014, "Player": "Kevin Pietersen", "Amount": 90000000}, {"Year": 2018, "Player": "Krunal Pandya", "Amount": 88000000}, {"Year": 2016, "Player": "Pawan Negi", "Amount": 85000000}, {"Year": 2020, "Player": "Sheldon Cottrell", "Amount": 85000000}, {"Year": 2019, "Player": "Jaydev Unadkat", "Amount": 84000000}, {"Year": 2019, "Player": "Varun Chakaravarthy", "Amount": 84000000}, {"Year": 2018, "Player": "Sanju Samson", "Amount": 80000000}, {"Year": 2020, "Player": "Nathan Coulter-Nile", "Amount": 80000000}, {"Year": 2021, "Player": "Riley Meredith", "Amount": 80000000}, {"Year": 2020, "Player": "Shimron Hetmyer", "Amount": 77500000}, {"Year": 2015, "Player": "Angelo Mathews", "Amount": 75000000}, {"Year": 2013, "Player": "Glenn Maxwell", "Amount": 75000000}, {"Year": 2019, "Player": "Sam Curran", "Amount": 72000000}, {"Year": 2016, "Player": "Yuvraj Singh", "Amount": 70000000}, {"Year": 2016, "Player": "Christopher Morris", "Amount": 70000000}, {"Year": 2021, "Player": "Moeen Ali", "Amount": 70000000}, {"Year": 2020, "Player": "Piyush Chawla", "Amount": 67500000}, {"Year": 2016, "Player": "Mohit Sharma", "Amount": 65000000}, {"Year": 2014, "Player": "Mitchell Johnson", "Amount": 65000000}, {"Year": 2019, "Player": "Colin Ingram", "Amount": 64000000}, {"Year": 2014, "Player": "Glenn Maxwell", "Amount": 60000000}, {"Year": 2014, "Player": "David Warner", "Amount": 55000000}, {"Year": 2016, "Player": "Ashish Nehra", "Amount": 55000000}, {"Year": 2014, "Player": "Jacques Kallis", "Amount": 55000000}, {"Year": 2020, "Player": "Sam Curran", "Amount": 55000000}, {"Year": 2013, "Player": "Ajantha Mendis", "Amount": 54375000}, {"Year": 2020, "Player": "Eoin Morgan", "Amount": 52500000}, {"Year": 2021, "Player": "Shahrukh Khan", "Amount": 52500000}, {"Year": 2021, "Player": "Tom Curran", "Amount": 52500000}, {"Year": 2013, "Player": "Kane Richardson", "Amount": 52500000}, {"Year": 2013, "Player": "Abhishek Nayar", "Amount": 50625000}, {"Year": 2013, "Player": "Thisara Perera", "Amount": 50625000}, {"Year": 2014, "Player": "Robin Uthappa", "Amount": 50000000}, {"Year": 2014, "Player": "Mitchell Starc", "Amount": 50000000}, {"Year": 2021, "Player": "Nathan Coulter-Nile", "Amount": 50000000}, {"Year": 2019, "Player": "Shivam Dube", "Amount": 50000000}, {"Year": 2017, "Player": "Trent Boult", "Amount": 50000000}, {"Year": 2014, "Player": "Murali Vijay", "Amount": 50000000}, {"Year": 2019, "Player": "Mohit Sharma", "Amount": 50000000}, {"Year": 2019, "Player": "Carlos Brathwaite", "Amount": 50000000}, {"Year": 2017, "Player": "Kagiso Rabada", "Amount": 50000000}, {"Year": 2019, "Player": "Axar Rajesh Patel", "Amount": 50000000}, {"Year": 2019, "Player": "Mohammad Shami", "Amount": 48000000}, {"Year": 2016, "Player": "Mitchell Marsh", "Amount": 48000000}, {"Year": 2019, "Player": "Prabhsimran Singh", "Amount": 48000000}, {"Year": 2020, "Player": "Marcus Stoinis", "Amount": 48000000}, {"Year": 2013, "Player": "Sachithra Senanayaka", "Amount": 46875000}, {"Year": 2013, "Player": "Christopher Morris", "Amount": 46875000}, {"Year": 2016, "Player": "M. Ashwin", "Amount": 45000000}, {"Year": 2017, "Player": "Pat Cummins", "Amount": 45000000}, {"Year": 2013, "Player": "Dirk Nannes", "Amount": 45000000}, {"Year": 2016, "Player": "Deepak Hooda", "Amount": 42000000}, {"Year": 2016, "Player": "Sanju Samson", "Amount": 42000000}, {"Year": 2017, "Player": "Chris Woakes", "Amount": 42000000}, {"Year": 2015, "Player": "Zaheer Khan", "Amount": 40000000}, {"Year": 2017, "Player": "Rashid Khan Arman", "Amount": 40000000}, {"Year": 2013, "Player": "Jaydev Unadkat", "Amount": 39375000}, {"Year": 2015, "Player": "Trent Boult", "Amount": 38000000}, {"Year": 2013, "Player": "Manpreet Gony", "Amount": 37500000}, {"Year": 2015, "Player": "Amit Mishra", "Amount": 35000000}, {"Year": 2017, "Player": "Nathan Coulter-Nile", "Amount": 35000000}, {"Year": 2015, "Player": "Aaron Finch", "Amount": 32000000}, {"Year": 2017, "Player": "Karn Sharma", "Amount": 32000000}, {"Year": 2017, "Player": "T Natarajan", "Amount": 30000000}, {"Year": 2015, "Player": "Murali Vijay", "Amount": 30000000}, {"Year": 2015, "Player": "David Wiese", "Amount": 28000000}, {"Year": 2015, "Player": "Darren Sammy", "Amount": 28000000}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
