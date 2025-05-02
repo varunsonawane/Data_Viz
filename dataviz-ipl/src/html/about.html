@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IPL Data Viz</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/ipl2.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+</head>
+
+<body>
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+
+    <div id="navbar-placeholder"></div>
+
+    <div class="body-wrapper">
+      <header class="app-header">
+        <h1 class="mt-3">About Page</h1>
+      </header>
+
+      <div class="container-fluid">
+        <div class="card mt-4">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4">Contributors</h5>
+            <div class="row justify-content-center">
+              <div class="col-md-3 col-sm-6 text-center mb-4">
+                <img src="../assets/images/contributors/shivali.jpeg" alt="Shivali Mate" class="img-fluid rounded-circle mb-2" style="width: 150px; height: 150px; object-fit: cover;">
+                <p class="mb-1">Shivali Mate</p>
+                <a href="https://www.linkedin.com/in/shivali-m/" target="_blank">
+                  <i class="bi bi-linkedin" style="font-size: 1.5rem; color: #0a66c2;"></i>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 text-center mb-4">
+                <img src="../assets/images/contributors/aryan.jpeg" alt="Aryan Dhuru" class="img-fluid rounded-circle mb-2" style="width: 150px; height: 150px; object-fit: cover;">
+                <p class="mb-1">Aryan Dhuru</p>
+                <a href="https://www.linkedin.com/in/aryandhuru/" target="_blank">
+                  <i class="bi bi-linkedin" style="font-size: 1.5rem; color: #0a66c2;"></i>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 text-center mb-4">
+                <img src="../assets/images/contributors/varun.jpeg" alt="Varun Sonawane" class="img-fluid rounded-circle mb-2" style="width: 150px; height: 150px; object-fit: cover;">
+                <p class="mb-1">Varun Sonawane</p>
+                <a href="https://www.linkedin.com/in/varun-sonawane/" target="_blank">
+                  <i class="bi bi-linkedin" style="font-size: 1.5rem; color: #0a66c2;"></i>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-6 text-center mb-4">
+                <img src="../assets/images/contributors/pranav.jpeg" alt="Pranav Khedkar" class="img-fluid rounded-circle mb-2" style="width: 150px; height: 150px; object-fit: cover;">
+                <p class="mb-1">Pranav Khedkar</p>
+                <a href="https://www.linkedin.com/in/pranavkhedkar22/" target="_blank">
+                  <i class="bi bi-linkedin" style="font-size: 1.5rem; color: #0a66c2;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+</body>
+
+</html>
+
+<script>
+  fetch('navbar.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('navbar-placeholder').innerHTML = data;
+    });
+</script>

@@ -1,0 +1,99 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IPL Data Viz</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/ipl2.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+
+    
+<div id="navbar-placeholder"></div>
+
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+        <header class="app-header">
+            <h1 class="mt-3">Game Statistics Page</h1>
+        </header>
+      <!--  Header End -->
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 d-flex align-items-strech">
+                <div class="card w-100">
+                    <div class="card-body">     
+                        <div></div>                                                                                                   
+                        <iframe src="../assets/plots/game_plots/win_ratio_by_season_mumbai_indians.html" width="100%" height="500"></iframe>
+                        <p class="card-text">This graph tracks how each IPL team's win ratio has evolved season by season, revealing patterns of dominance, inconsistency, or decline</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 d-flex align-items-strech">
+                <div class="card w-100">
+                    <div class="card-body">                   
+                        <iframe src="../assets/plots/game_plots/ipl_legacy_dashboard_win_percentage_trophies.html" width="100%" height="700"></iframe>
+                        <p class="card-text">This dashboard highlights both win consistency and championship success, showing how teams like CSK and MI dominate with high win rates and multiple trophies, while others like RCB and Delhi show competitive stats but lack titles.
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 d-flex align-items-strech">
+                <div class="card w-100">
+                    <div class="card-body">                   
+                        <iframe src="../assets/plots/game_plots/toss_to_match_conversion_breakdown.html" width="100%" height="500"></iframe>
+                        <p class="card-text">This stacked bar chart reveals which teams effectively convert toss wins into
+                            match victories — with Mumbai Indians and CSK leading in both toss success and
+                            conversion, while teams like Punjab Kings and Delhi Capitals struggle to capitalize.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 d-flex align-items-strech">
+                <div class="card w-100">
+                    <div class="card-body">                   
+                        <iframe src="../assets/plots/game_plots/ipl_stadiums_map.html" width="100%" height="600"></iframe>
+                        <p class="card-text">This map visualizes IPL stadiums by total runs and average runs per match,
+                            revealing high-scoring venues like Mumbai and Delhi, while also highlighting
+                            lesser-used grounds with lower scoring trends.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+</div>
+
+
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  
+</body>
+
+</html>
+
+
+<script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+      });
+
+
+  </script>

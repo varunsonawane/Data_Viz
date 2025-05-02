@@ -1,0 +1,30 @@
+.ipl-story-arc {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.arc-step {
+  flex: 1 1 150px;
+  min-width: 120px;
+  max-width: 200px;
+}
+
+.arc-box {
+  background-color: #FFEB99;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  white-space: normal;
+}
+
+.arc-arrow {
+  font-size: 24px;
+  font-weight: bold;
+  color: #5D87FF;
+}

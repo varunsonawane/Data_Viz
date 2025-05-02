@@ -1,0 +1,141 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IPL Data Viz</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/ipl2.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+
+    
+<div id="navbar-placeholder"></div>
+
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+        <header class="app-header">
+            <h1 class="mt-3">Auction Page</h1>
+        </header>
+      <!--  Header End -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 d-flex align-items-strech">
+                    <div class="card w-100">
+                        <div class="card-body">     
+                            <div></div>                                                                                                   
+                            <iframe src="../assets/plots/auction_plots/team_spending_over_years.html" width="100%" height="500"></iframe>
+                            <p class="card-text">A year-wise breakdown of IPL team spending patterns, revealing consistency, splurges, and shifts in auction strategy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 align-items-strech"></div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title fw-semibold mb-4">Top 4 Spendings by Year</h5>
+                            <video width="100%" controls>
+                                <!-- <video width="100%" autoplay loop muted> -->
+                                    <source src="../assets/videos/Top4SpendingTeams.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                            </video>
+                            <p class="card-text">Watch the top spenders in each IPL auction season battle it out, dynamically racing for dominance as the years roll by.</p>            
+                        </div>
+                    </div>        
+                </div>        
+            </div>
+            <!-- <div class="row">
+                <div class="col-lg-12 d-flex align-items-strech">
+                    <div class="card w-100">
+                        <div class="card-body">                   
+                            <iframe src="../assets/plots/auction_plots/spending_on_bowlers_vs_batsmen.html" width="100%" height="500"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-lg-12 d-flex align-items-strech">
+                    <div class="card w-100">
+                        <div class="card-body">                   
+                            <iframe src="../assets/plots/auction_plots/streamgraph_amount_by_role_over_years.html" width="100%" height="500"></iframe>
+                            <p class="card-text">A streamgraph showcasing the evolution of IPL auction spending by player role over the years, highlighting trends and shifts in team strategies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col-lg-12 d-flex align-items-strech">
+                    <div class="card w-100">
+                        <div class="card-body">                   
+                            <iframe src="../assets/plots/auction_plots/Amit_Mishra_valuation_over_years.html" width="100%" height="500"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="row">
+                <div class="col-lg-12 d-flex align-items-strech">
+                    <div class="card w-100">
+                        <div class="card-body">                   
+                            <iframe src="../assets/plots/auction_plots/top_5_player_rockets.html" width="100%" height="500"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 d-flex align-items-strech">
+                    <div class="card w-100">
+                        <div class="card-body">                   
+                            <iframe src="../assets/plots/auction_plots/top_5_player_crashes.html" width="100%" height="500"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-lg-12 d-flex align-items-strech">
+                    <div class="card w-100">
+                        <div class="card-body">                   
+                            <iframe src="../assets/plots/auction_plots/top_5_player_rockets_smoothed.html" width="100%" height="500"></iframe>
+                            
+                            <p class="card-text">A spotlight on the biggest swings in player valuations—featuring breakout stars and surprising dips across auctions.   </p>   
+                        <!-- </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 d-flex align-items-strech">
+                    <div class="card w-100">
+                        <div class="card-body">                    -->
+                            <iframe src="../assets/plots/auction_plots/top_5_player_crashes_smoothed.html" width="100%" height="500"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  
+</body>
+
+</html>
+
+
+<script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+      });
+
+
+  </script>
