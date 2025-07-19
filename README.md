@@ -1,6 +1,8 @@
 
 # 🏏 Indian Data Premier League – IPL Data Visualization (2008–2023)
 
+### Live Link : https://aryandhuru49.github.io/Indian-Data-Premier-League/src/html/index.html
+
 ## 📌 Overview
 
 This project is an interactive web-based data visualization dashboard that explores key facets of the Indian Premier League (IPL) from 2008 to 2023. Focused on **exploratory data analysis (EDA)** rather than prediction or machine learning, it provides insights into:
